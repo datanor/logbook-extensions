@@ -12,7 +12,7 @@ For detailed configuration of Logbook, see [Logbook git repo](https://github.com
 ### Gradle dependency
 
 ```
-implementation 'ee.datanor.logbook:logbook-extensions:1.0.0'
+implementation 'ee.datanor.logbook:logbook-extensions:3.12.3.1'
 ```
 
 ### HttpClient usage
@@ -75,7 +75,7 @@ CloseableHttpClient client = HttpClientBuilder.create()
 
 ```
 implementation 'org.zalando:logbook-spring-boot-starter:3.12.3'
-implementation 'ee.datanor.logbook:logbook-extensions-spring-boot-starter:0.0.1'
+implementation 'ee.datanor.logbook:logbook-extensions-spring-boot-starter:3.12.3.1'
 // optional for httpclient5 logging
 // implementation 'org.zalando:logbook-httpclient5:3.12.3'
 ```
