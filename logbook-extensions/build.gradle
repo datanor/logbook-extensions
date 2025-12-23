@@ -1,0 +1,61 @@
+plugins {
+    id 'signing'
+    id 'maven-publish'
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from(components.java)
+            pom {
+                name = 'logbook-extensions'
+                description = 'An opinionated set of extensions for Zalando Logbook'
+                url = 'https://github.com/datanor/logbook-extensions'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'priittalisoo'
+                        name = 'Priit Talisoo'
+                        email = 'priit.talisoo@datanor.ee'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/datanor/logbook-extensions'
+                    connection = 'scm:git://github.com/datanor/logbook-extensions.git'
+                    developerConnection = 'scm:git://github.com/datanor/logbook-extensions.git'
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+}
+
+ext.genOutputDir = file("$buildDir/generated-resources")
+
+task generateVersionTxt()  {
+    ext.outputFile = file("$genOutputDir/version.txt")
+    outputs.file(outputFile)
+    doLast {
+        outputFile.text = """GroupId: ${project.group}
+Name: ${project.name}
+Version: $version
+Build-time: ${java.time.LocalDateTime.now()}
+"""
+    }
+}
+
+sourceSets.main.output.dir genOutputDir, builtBy: generateVersionTxt
+

@@ -1,0 +1,10 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'logbook-extensions'
+include 'logbook-extensions'
+include 'logbook-extensions-spring-boot-starter'
