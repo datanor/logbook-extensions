@@ -71,7 +71,9 @@ public class SimpleHttpClientLogFormatter implements HttpLogFormatter {
         if (loggedMediaSubTypes == null) {
             loggedMediaSubTypes = Set.of();
         }
-        return contentType == null || contentType.isEmpty() || loggedMediaSubTypes.stream().anyMatch(st -> contentType.contains("/" + st));
+        return contentType == null || contentType.isEmpty() ||
+                loggedMediaSubTypes.stream().anyMatch(st -> contentType.contains("/" + st)) ||
+                loggedMediaSubTypes.stream().anyMatch(st -> contentType.contains("+" + st));
     }
 
     private String limitStringLength(String input, int maxLength) {

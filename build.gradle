@@ -2,7 +2,7 @@ plugins {
 	id 'java-library'
 	id 'jacoco'
 	id 'com.github.ben-manes.versions' version '0.53.0'
-    id 'io.freefair.lombok' version '9.1.0' apply false
+    id 'io.freefair.lombok' version '9.2.0' apply false
     id 'io.github.gradle-nexus.publish-plugin' version '2.0.0'
 }
 
@@ -36,16 +36,16 @@ allprojects {
         compileOnly 'org.projectlombok:lombok'
         annotationProcessor 'org.projectlombok:lombok'
 
-        implementation 'org.zalando:logbook-core:3.12.3'
+        implementation 'org.zalando:logbook-core:4.0.2'
         implementation 'org.apache.commons:commons-text:1.15.0'
 
         testImplementation 'org.slf4j:slf4j-api:2.0.17'
         testImplementation 'org.apache.logging.log4j:log4j-core:2.25.3'
         testImplementation 'org.apache.logging.log4j:log4j-api:2.25.3'
         testImplementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.25.3'
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.1'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.1'
-        testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.0.1'
+            testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.2'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.2'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher:6.0.2'
     }
 
     tasks.withType(Test)  {
